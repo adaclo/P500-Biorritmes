@@ -1,7 +1,12 @@
 [
     {
-        "nom": "test",
-        "naixement": "2026-04-02",
-        "data_calcul": "2026-04-27"
+        "nom": "asd",
+        "naixement": "2026-04-22",
+        "data_calcul": "2026-04-27",
+        "resultats": {
+            "f\u00edsic": 0.9790840876823229,
+            "emotiu": 0.9009688679024191,
+            "intelectual": 0.8145759520503357
+        }
     }
 ]
