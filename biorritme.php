@@ -31,19 +31,23 @@ class Biorritme {
     }
 
     public function saveCalculBiorritmeToJson($values) {
-        //Metode que enregistre les dades a un arxiu en format Json
-        //Cal afegir les noves dades a les existents a l'arxiu
-        //Aquesta és una estructura que us serveix de guia, no l'script definitiu.
-        
-        $file_name="nomdelfitxer.json";
-        //Recupera el contingut d'un fitxer
-        $json_data = file_get_contents($file_name);
-        //Decodifica de text a Array
-        $data = json_decode($json_data, true);
-        //Codifica un Array en format Json
-        $json_data = json_encode($data, JSON_PRETTY_PRINT); 
-        //Enregistra en un fitxer
-        file_put_contents($file_name, $json_data );
+
+        $fitxer = "biorritmes.json";
+
+        if (file_exists($fitxer)) {
+            $json_data = file_get_contents($fitxer);
+            $data = json_decode($json_data, true);
+        } else {
+            $data = [];
+        }
+
+        $data[] = [
+            "nom" => $this->nom,
+            "naixement" => $this->naixement,
+            "data_calcul" => date("Y-m-d"),
+        ];
+
+        file_put_contents($fitxer, json_encode($data, JSON_PRETTY_PRINT));
     }
 
     public function tableCalculBiorritmeJsonFile() {
