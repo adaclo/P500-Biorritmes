@@ -22,7 +22,7 @@ class Biorritme {
 
         $dies = $dataNaixement->diff($dataActual)->days;
 
-        foreach ($this->arrPeriods as $tipus -> $periode) {
+        foreach ($this->arrPeriodes as $tipus => $periode) {
             $valor = sin(2 * pi() * $dies / $periode);
             $resultats[$tipus] = $valor;
         }
@@ -45,6 +45,7 @@ class Biorritme {
             "nom" => $this->nom,
             "naixement" => $this->naixement,
             "data_calcul" => date("Y-m-d"),
+            "resultats" => $values
         ];
 
         file_put_contents($fitxer, json_encode($data, JSON_PRETTY_PRINT));
@@ -60,7 +61,7 @@ class Biorritme {
         $json_data = file_get_contents($fitxer);
         $data = json_decode($json_data, true);
 
-        $html_table="<table border='1'><tr><th>Nom</th><th>Data de Naixement</th><th>Data de Càlcul</th></tr>";
+        $html_table="<table border='1'><tr><th>Nom</th><th>Data de Naixement</th><th>Data de Càlcul</th><th>Físic</th><th>Emotiu</th><th>Intel·lectual</th></tr>";
 
         foreach ($data as $registre) {
             $html_table .= "<tr>";

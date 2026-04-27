@@ -2,9 +2,9 @@
 include 'biorritme.php';
 
 $usuari = new Biorritme($_POST["datanaixement"], $_POST["nomusuari"]);
-//Li demanem a l'objecte que calculi el biorritme
-//Li demanem a l'objecte que enregistri les noves dades a l'arxiu json
-//Li demanem a l'objecte que generi i ens retorni una taula HTML
+$data = $usuari->calculBiorritme();
+$usuari->saveCalculBiorritmeToJson($data);
+$taula = $usuari->tableCalculBiorritmeJsonFile();
 
 $today = new DateTime();
 
@@ -22,7 +22,7 @@ $today = new DateTime();
 <body >
     <div>    
         <h2>Resultat del biorritme</h2>
-        <h1 >Hola Usuari (Aquí el nom)</h1>
+        <h1 >Hola <?php echo $_POST["nomusuari"]; ?></h1>
         <p >Data actual: <?php echo $today->format('d/m/Y'); ?></p>
         <a href="index.html" >Torna enrere</a>
     </div>
@@ -50,7 +50,7 @@ $today = new DateTime();
         </div>
          <div>
             <p> TAULA DE DADES. Li demanem a l'objecte que ens mostri la taula de dades</p>
-            
+            <?php echo $taula; ?>
         </div>
     
        
