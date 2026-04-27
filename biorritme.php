@@ -51,11 +51,28 @@ class Biorritme {
     }
 
     public function tableCalculBiorritmeJsonFile() {
+        $fitxer = "biorritmes.json";
 
-        //Metode que llegeix les dades d'un arxiu en format Json
-         $html_table="";
-        //Confecciona una taula HTML amb les dades
-        //Retorna la taula
+        if (!file_exists($fitxer)) {
+            return "<p>No hi ha dades disponibles.</p>";
+        }
+
+        $json_data = file_get_contents($fitxer);
+        $data = json_decode($json_data, true);
+
+        $html_table="<table border='1'><tr><th>Nom</th><th>Data de Naixement</th><th>Data de Càlcul</th></tr>";
+
+        foreach ($data as $registre) {
+            $html_table .= "<tr>";
+            $html_table .= "<td>{$registre['nom']}</td>";
+            $html_table .= "<td>{$registre['naixement']}</td>";
+            $html_table .= "<td>{$registre['resultats']['físic']}</td>";
+            $html_table .= "<td>{$registre['resultats']['emotiu']}</td>";
+            $html_table .= "<td>{$registre['resultats']['intelectual']}</td>";
+            $html_table .= "</tr>";
+        }
+
+        $html_table .= "</table>";
        
         return $html_table;
     }
