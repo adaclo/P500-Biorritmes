@@ -5,8 +5,9 @@ class Biorritme {
     private $arrPeriodes = array("físic"=>23, "emotiu"=>28, "intelectual"=>33);
   
 
-    public function __construct($naixement, $nom) {
-        //
+    public function __construct($naixement, $nom) { 
+        $this->naixement = $naixement;
+        $this->nom = $nom;
     }
 
     public function getNom() {
@@ -14,9 +15,19 @@ class Biorritme {
     }
 
     public function calculBiorritme() {
-       //Calcula els biorritmes en funció de la data
-       //actual i la data de naixement
-       //Heu de tenir en compte els periodes a arrPeriodes
+        $resultats = [];
+
+        $dataActual = new DateTime();
+        $dataNaixement = new DateTime($this->naixement);
+
+        $dies = $dataNaixement->diff($dataActual)->days;
+
+        foreach ($this->arrPeriods as $tipus -> $periode) {
+            $valor = sin(2 * pi() * $dies / $periode);
+            $resultats[$tipus] = $valor;
+        }
+
+        return $resultats;
     }
 
     public function saveCalculBiorritmeToJson($values) {

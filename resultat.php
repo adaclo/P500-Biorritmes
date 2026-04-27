@@ -1,8 +1,7 @@
 <?php
 include 'biorritme.php';
 
-//Recollim les dades del formulari index.html
-//Instanciem un objecte Biorritme
+$usuari = new Biorritme($_POST["datanaixement"], $_POST["nomusuari"]);
 //Li demanem a l'objecte que calculi el biorritme
 //Li demanem a l'objecte que enregistri les noves dades a l'arxiu json
 //Li demanem a l'objecte que generi i ens retorni una taula HTML
