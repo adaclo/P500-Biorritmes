@@ -20,11 +20,20 @@ class Biorritme {
         $dataActual = new DateTime();
         $dataNaixement = new DateTime($this->naixement);
 
+        if ($dataNaixement > $dataActual) {
+            throw new Exception("La data de naixement no pot ser posterior a la data actual.");
+        }
+
         $dies = $dataNaixement->diff($dataActual)->days;
 
         foreach ($this->arrPeriodes as $tipus => $periode) {
             $valor = sin(2 * pi() * $dies / $periode);
-            $resultats[$tipus] = $valor;
+            $percentatge = (($valor + 1) / 2) * 100;
+
+            $resultats[$tipus] = [
+                "valor" => round($valor, 2),
+                "percentatge" => round($percentatge, 2)
+            ];
         }
 
         return $resultats;
