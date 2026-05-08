@@ -1,1 +1,116 @@
-[]
+[
+    {
+        "nom": "dqwd",
+        "naixement": "2026-02-19",
+        "data_calcul": "2026-05-08",
+        "resultats": {
+            "f\u00edsic": {
+                "valor": 0.63,
+                "percentatge": 81.55
+            },
+            "emotiu": {
+                "valor": -0.97,
+                "percentatge": 1.25
+            },
+            "intelectual": {
+                "valor": 0.76,
+                "percentatge": 87.79
+            }
+        }
+    },
+    {
+        "nom": "dqwd",
+        "naixement": "2026-02-19",
+        "data_calcul": "2026-05-08",
+        "resultats": {
+            "f\u00edsic": {
+                "valor": 0.63,
+                "percentatge": 81.55
+            },
+            "emotiu": {
+                "valor": -0.97,
+                "percentatge": 1.25
+            },
+            "intelectual": {
+                "valor": 0.76,
+                "percentatge": 87.79
+            }
+        }
+    },
+    {
+        "nom": "wefwe",
+        "naixement": "2026-05-01",
+        "data_calcul": "2026-05-08",
+        "resultats": {
+            "f\u00edsic": {
+                "valor": 0.94,
+                "percentatge": 97.11
+            },
+            "emotiu": {
+                "valor": 1,
+                "percentatge": 100
+            },
+            "intelectual": {
+                "valor": 0.97,
+                "percentatge": 98.59
+            }
+        }
+    },
+    {
+        "nom": "wefwe",
+        "naixement": "2026-05-01",
+        "data_calcul": "2026-05-08",
+        "resultats": {
+            "f\u00edsic": {
+                "valor": 0.94,
+                "percentatge": 97.11
+            },
+            "emotiu": {
+                "valor": 1,
+                "percentatge": 100
+            },
+            "intelectual": {
+                "valor": 0.97,
+                "percentatge": 98.59
+            }
+        }
+    },
+    {
+        "nom": "wefwe",
+        "naixement": "2026-05-01",
+        "data_calcul": "2026-05-08",
+        "resultats": {
+            "f\u00edsic": {
+                "valor": 0.94,
+                "percentatge": 97.11
+            },
+            "emotiu": {
+                "valor": 1,
+                "percentatge": 100
+            },
+            "intelectual": {
+                "valor": 0.97,
+                "percentatge": 98.59
+            }
+        }
+    },
+    {
+        "nom": "dede",
+        "naixement": "2026-05-04",
+        "data_calcul": "2026-05-08",
+        "resultats": {
+            "f\u00edsic": {
+                "valor": 0.89,
+                "percentatge": 94.39
+            },
+            "emotiu": {
+                "valor": 0.78,
+                "percentatge": 89.09
+            },
+            "intelectual": {
+                "valor": 0.69,
+                "percentatge": 84.5
+            }
+        }
+    }
+]

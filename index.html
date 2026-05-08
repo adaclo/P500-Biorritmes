@@ -1,57 +1,156 @@
 <!doctype html>
 <html lang="ca">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Biorritmes personals</title>
-    <!--<script src="https://cdn.tailwindcss.com"></script>-->
-  </head>
-  <body>
-    
-        <div>
-          <section>
-            
-             <div>
-              <h1 >Descobreix el teu estat energètic</h1>
-              <p>Els cicles físic, emotiu i intel·lectual es mouen en ritmes constants. Calcula el teu biorritme per saber quins dies ets més fort, més sensible i més inspirat.</p>
-            </div>
-            <div></div>
-                <p >Físic</p>
-                <p >23 dies</p>
-              </div>
-              <div >
-                <p >Emotiu</p>
-                <p >28 dies</p>
-              </div>
-              <div >
-                <p >Intel·lectual</p>
-                <p >33 dies</p>
-              </div>
-            </div>
-          </section>
 
-          <section >
-            <div >
-              <h2 >Calcula el teu biorritme</h2>
-              <p >Introdueix el teu nom i la teva data de naixement per veure el teu estat actual.</p>
+    <title>Biorritmes personals</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="min-h-screen text-white">
+
+<main class="relative min-h-screen overflow-hidden">
+
+    <div class="absolute inset-0"></div>
+
+    <div class="hero-overlay absolute inset-0"></div>
+
+    <section class="relative mx-auto flex min-h-screen max-w-7xl items-center px-6 py-12 lg:px-8">
+
+        <div class="grid w-full items-center gap-12 lg:grid-cols-2">
+
+            <div>
+
+                <span class="glass-card mb-5 inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-blue-200">
+                    ✨ Calculadora personal de biorritmes
+                </span>
+
+                <h1 class="mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    Descobreix el teu estat energètic
+                </h1>
+
+                <p class="mb-8 max-w-2xl text-lg leading-8 text-slate-300">
+                    Els cicles físic, emotiu i intel·lectual es mouen en ritmes constants.
+                    Calcula el teu biorritme i visualitza el teu estat actual de forma clara i elegant.
+                </p>
+
+                <div class="grid gap-4 sm:grid-cols-3">
+
+                    <div class="glass-card rounded-2xl p-5">
+                        <p class="text-sm text-slate-300">Cicle</p>
+                        <p class="mt-2 text-2xl font-bold text-blue-300">Físic</p>
+                        <p class="mt-1 text-sm text-slate-400">23 dies</p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-5">
+                        <p class="text-sm text-slate-300">Cicle</p>
+                        <p class="mt-2 text-2xl font-bold text-pink-300">Emotiu</p>
+                        <p class="mt-1 text-sm text-slate-400">28 dies</p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-5">
+                        <p class="text-sm text-slate-300">Cicle</p>
+                        <p class="mt-2 text-2xl font-bold text-purple-300">Intel·lectual</p>
+                        <p class="mt-1 text-sm text-slate-400">33 dies</p>
+                    </div>
+
+                </div>
+
             </div>
-            <form action="resultat.php" method="post" >
-              <label >
-                <span >Nom d'usuari</span>
-                <input type="text" name="nomusuari" id="nomusuari" required placeholder="Escriu el teu nom"  />
-              </label>
-              <label >
-                <span >Data de naixement</span>
-                <input type="date" name="datanaixement" id="datanaixement" required  />
-              </label>
-              <button type="submit" >Calcula ara</button>
-            </form>
-            <div >
-              <p >Tip: guarda el resultat i compara el teu estat amb diferents dates.</p>
+
+            <div class="glass-card rounded-3xl p-8 text-white">
+
+                <div class="mb-8 text-center">
+                    <h2 class="text-3xl font-bold text-slate-950">
+                        Calcula el teu biorritme
+                    </h2>
+
+                    <p class="mt-3 text-slate-300">
+                        Introdueix les teves dades per veure el teu estat d'avui.
+                    </p>
+                </div>
+
+                <form action="resultat.php" method="post" class="space-y-6">
+
+                    <div>
+                        <label for="nomusuari" class="mb-2 block text-sm font-medium text-slate-800">
+                            Nom d'usuari
+                        </label>
+
+                        <div class="relative">
+
+                            <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400">
+                                👤
+                            </div>
+
+                            <input
+                                type="text"
+                                name="nomusuari"
+                                id="nomusuari"
+                                required
+                                placeholder="Escriu el teu nom"
+                                class="block w-full rounded-xl border border-slate-300 bg-slate-50 p-4 ps-12 text-slate-900 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="datanaixement" class="mb-2 block text-sm font-medium text-slate-800">
+                            Data de naixement
+                        </label>
+
+                        <div class="relative">
+
+                            <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400">
+                                📅
+                            </div>
+
+                            <input
+                                type="date"
+                                name="datanaixement"
+                                id="datanaixement"
+                                required
+                                class="block w-full rounded-xl border border-slate-300 bg-slate-50 p-4 ps-12 text-slate-900 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            />
+                        </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="gradient-btn group w-full rounded-xl px-5 py-4 text-center text-base font-semibold text-white"
+                    >
+                        Calcula ara
+
+                        <span class="inline-block transition group-hover:translate-x-1">
+                            →
+                        </span>
+                    </button>
+
+                </form>
+
+                <div class="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm text-blue-800">
+                    💡 Tip: guarda el resultat i compara el teu estat amb diferents dates.
+                </div>
+
             </div>
-          </section>
+
         </div>
-      </div>
-    </div>
-  </body>
+
+    </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+</body>
 </html>

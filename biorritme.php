@@ -64,25 +64,37 @@ class Biorritme {
         $fitxer = "biorritmes.json";
 
         if (!file_exists($fitxer)) {
-            return "<p>No hi ha dades disponibles.</p>";
+            return "<p class='rounded-xl bg-slate-100 p-4 text-slate-600'>No hi ha dades disponibles.</p>";
         }
 
         $json_data = file_get_contents($fitxer);
         $data = json_decode($json_data, true);
 
-        $html_table="<table border='1'><tr><th>Nom</th><th>Data de Naixement</th><th>Físic</th><th>Emotiu</th><th>Intel·lectual</th></tr>";
+        if (!$data || count($data) === 0) {
+            return "<p class='rounded-xl bg-slate-100 p-4 text-slate-600'>No hi ha dades disponibles.</p>";
+        }
 
-        foreach ($data as $registre) {
-            $html_table .= "<tr>";
-            $html_table .= "<td>{$registre['nom']}</td>";
-            $html_table .= "<td>{$registre['naixement']}</td>";
-            $html_table .= "<td>{$registre['resultats']['físic']}</td>";
-            $html_table .= "<td>{$registre['resultats']['emotiu']}</td>";
-            $html_table .= "<td>{$registre['resultats']['intelectual']}</td>";
+        $html_table = "<div class='relative overflow-x-auto rounded-2xl border border-slate-200 shadow-sm'>";
+        $html_table .= "<table class='w-full text-left text-sm text-slate-600'>";
+        $html_table .= "<thead class='bg-slate-900 text-xs uppercase tracking-wider text-white'>";
+        $html_table .= "<tr><th class='px-6 py-4'>Nom</th><th class='px-6 py-4'>Data de naixement</th><th class='px-6 py-4'>Físic</th><th class='px-6 py-4'>Emotiu</th><th class='px-6 py-4'>Intel·lectual</th></tr>";
+        $html_table .= "</thead><tbody>";
+
+        foreach (array_reverse($data) as $registre) {
+            $fisic = $registre['resultats']['físic']['percentatge'] ?? 0;
+            $emotiu = $registre['resultats']['emotiu']['percentatge'] ?? 0;
+            $intelectual = $registre['resultats']['intelectual']['percentatge'] ?? 0;
+
+            $html_table .= "<tr class='border-b bg-white hover:bg-slate-50'>";
+            $html_table .= "<td class='whitespace-nowrap px-6 py-4 font-semibold text-slate-900'>" . htmlspecialchars($registre['nom']) . "</td>";
+            $html_table .= "<td class='px-6 py-4'>" . htmlspecialchars($registre['naixement']) . "</td>";
+            $html_table .= "<td class='px-6 py-4'><span class='rounded-full bg-blue-100 px-3 py-1 font-medium text-blue-700'>" . $fisic . "%</span></td>";
+            $html_table .= "<td class='px-6 py-4'><span class='rounded-full bg-pink-100 px-3 py-1 font-medium text-pink-700'>" . $emotiu . "%</span></td>";
+            $html_table .= "<td class='px-6 py-4'><span class='rounded-full bg-purple-100 px-3 py-1 font-medium text-purple-700'>" . $intelectual . "%</span></td>";
             $html_table .= "</tr>";
         }
 
-        $html_table .= "</table>";
+        $html_table .= "</tbody></table></div>";
        
         return $html_table;
     }
